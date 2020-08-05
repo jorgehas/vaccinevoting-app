@@ -73,3 +73,36 @@ worker:
 ![](Tovaccinate.png)
 
 #### Docker compose
+##### docker-compose.yml
+```
+version: '3'
+services:
+  redis:
+    image: redis
+
+  db:
+    image: postgres:9.4
+
+  vote:
+    image: vaccinevoting-app
+    ports:
+      - 5004:80
+    links:
+      - redis
+
+  worker:
+    image: worker-app
+    ports:
+       - 5007:80
+    links:
+       - db
+       - redis
+
+  result:
+    image: result-app
+    ports:
+      - 5006:80
+    links:
+      - db
+```
+#### Run ``` docker-compose up ```
