@@ -1,4 +1,8 @@
 # vaccinevoting-app
+### Architecture
+
+![](architecture.png)
+
 
 ##### Docker run
 ```
@@ -105,4 +109,27 @@ services:
     links:
       - db
 ```
-#### Run ``` docker-compose up ```
+##### Run ``` docker-compose up ```
+
+##### Private Registry
+```
+docker login private-registry.io
+docker run private-registry.io/apps/internal-app
+
+```
+#### Deploy private Registry
+ ```
+docker run -d -p 5000:5000 --name  registry registry:2
+```
+#### Tag an image with the created private registry
+```
+docker image tag my_image localhost:5000/my_image
+ ```
+ #### Push an image to the private registry
+ ```
+ docker push localhost:5000/my_image
+ ```
+ #### Pull the image from the Registry
+ ```
+ docker pull localhost:5000/my_image
+ ```
