@@ -133,3 +133,38 @@ docker image tag my_image localhost:5000/my_image
  ```
  docker pull localhost:5000/my_image
  ```
+ #### Fixing cpu size
+ ```
+ docker run --cpu=.5 centos
+ ```
+ #### Fixing  Memory size usage
+```
+docker run --memory=200m centos
+```
+#### Docker PID
+##### Running a tomcat container
+```
+docker run -it --rm -p 8888:8080 tomcat:9.0
+
+```
+##### Execute a command inside the container
+```
+docker exec ps -eaf
+```
+###### <em> -eaf: lists all the processes running in that container </em>
+
+```
+ps -eaf | grep
+```
+#### Docker Storage
+> Docker stores data by  default in var/lib/docker
+> it uses the COPY_AND_WRITE mechanism for handling code modifications.
+> We can persist data in docker by adding a data volume that we specify.Example:  - docker volume create data_volume
+                  - docker run -v data_volume:/var/lib/mongodb mongodb
+                  - docker run -v data_volume2:/var/lib/mongodb mongodb
+                  - docker run -v /data/mongodb:/var/lib/mongodb mongodb
+
+> We can also use "mount" as follows:
+```
+docker run --mount type=bind, source=/data/mongodb,target=/var/lib/mongodb  mongodb
+```
