@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_jorgehas_vaccinevoting_app_1707619669730-push-trigger-input-set
+  identifier: Build_jorgehas_vaccinevoting_app_1707619669730pushtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: test
+  pipeline:
+    identifier: Build_jorgehas_vaccinevoting_app_1707619669730
+    properties:
+      ci:
+        codebase:
+          build:
+            type: branch
+            spec:
+              branch: <+trigger.branch>
