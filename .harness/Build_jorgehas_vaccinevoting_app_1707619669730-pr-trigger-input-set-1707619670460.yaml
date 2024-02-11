@@ -1,0 +1,14 @@
+inputSet:
+  name: Build_jorgehas_vaccinevoting_app_1707619669730-pr-trigger-input-set
+  identifier: Build_jorgehas_vaccinevoting_app_1707619669730prtriggerinputset
+  orgIdentifier: default
+  projectIdentifier: test
+  pipeline:
+    identifier: Build_jorgehas_vaccinevoting_app_1707619669730
+    properties:
+      ci:
+        codebase:
+          build:
+            type: PR
+            spec:
+              number: <+trigger.prNumber>
