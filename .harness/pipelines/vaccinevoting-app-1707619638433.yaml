@@ -20,7 +20,7 @@ pipeline:
                     shell: Sh
                     command: echo "Welcome to Harness CI"
           platform:
-            os: Linux
+            os: MacOS
             arch: Amd64
           runtime:
             type: Docker
